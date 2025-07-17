@@ -1,6 +1,13 @@
 @extends('layouts.head')
 @extends('layouts.body')
+@extends('layouts.template')
 
+
+@section('title')
+    Home
+@endsection
+
+@section('content')
 
 @section('head')
 Doctors Data
@@ -43,4 +50,5 @@ Doctors Data
 </div>
 
 
+@endsection
 @endsection

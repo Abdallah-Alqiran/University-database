@@ -1,6 +1,13 @@
 @extends('layouts.head')
 @extends('layouts.body')
+@extends('layouts.template')
 
+
+@section('title')
+    Home
+@endsection
+
+@section('content')
 
 @section('head')
 Add Course
@@ -29,4 +36,5 @@ Add Course
 </div>
 
 
+@endsection
 @endsection

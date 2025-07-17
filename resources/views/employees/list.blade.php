@@ -1,7 +1,14 @@
 @extends('layouts.head')
 @extends('layouts.body')
 
+@extends('layouts.template')
 
+
+@section('title')
+    Home
+@endsection
+
+@section('content')
 @section('head')
 Employees Data
 @endsection
@@ -44,4 +51,5 @@ Employees Data
     </div>
 </div>
 
-@endsection()
+@endsection
+@endsection
