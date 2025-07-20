@@ -1,5 +1,3 @@
-@extends('layouts.head')
-@extends('layouts.body')
 @extends('layouts.template')
 
 
@@ -16,7 +14,7 @@ Departments Data
 @section('content')
 
 <div class="container d-flex justify-content-center align-items-start min-vh-100 pt-5">
-    <div class="col-8">
+    <div class="w-100">
         <h1 class="text-info text-center">List All Department</h1>
         <table class="table table-dart">
             <tr>

@@ -1,10 +1,8 @@
-@extends('layouts.head')
-@extends('layouts.body')
 @extends('layouts.template')
 
 
 @section('title')
-    Home
+Home
 @endsection
 
 @section('content')
@@ -16,7 +14,7 @@ Doctors Data
 @section('content')
 
 <div class="container d-flex justify-content-center align-items-start min-vh-100 pt-5">
-    <div class="col-8">
+    <div class="w-100">
         <h1 class="text-info text-center">List All Doctors</h1>
         <table class="table table-dart">
             <tr>
@@ -27,6 +25,7 @@ Doctors Data
                 <td>Age</td>
                 <td>Salary</td>
                 <td>Gender</td>
+                <td>courses explain:</td>
                 <td>Action</td>
             </tr>
             @foreach ($doctors as $doctor)
@@ -39,6 +38,11 @@ Doctors Data
                 <td>{{ $doctor->salary }}</td>
                 <td>{{ $doctor->gender }}</td>
                 <td> 
+                    @foreach ($doctor->course as $course)
+                        {{ $course->name }}, 
+                    @endforeach
+                </td>
+                <td>
                     <a href="{{ route('doctors.delete', $doctor->id) }}" class="btn btn-danger">Delete</a>
                     <a href="{{ route('doctors.edit', $doctor->id) }}" class="btn btn-primary">Edit</a>
                 </td>

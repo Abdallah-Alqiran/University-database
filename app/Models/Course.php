@@ -14,6 +14,11 @@ class Course extends Model
     protected $fillable = [
         'name',
         'hours',
-        'cost'
+        'cost',
+        'doctor_id'
     ];
+
+    public function doctor() {
+        return $this->belongsTo(Doctor::class);
+    }
 }

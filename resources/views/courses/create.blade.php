@@ -1,11 +1,8 @@
-@extends('layouts.head')
-@extends('layouts.body')
-
 @extends('layouts.template')
 
 
 @section('title')
-    Home
+Home
 @endsection
 
 @section('content')
@@ -16,7 +13,7 @@ Add Course
 @section('content')
 
 <div class="container d-flex justify-content-center align-items-start min-vh-100 pt-5">
-    <div class="col-8">
+    <div class="w-100">
         <h1 class="text-info text-center">Add New Course</h1>
 
         <form method="POST" action="{{ route('courses.store') }}">
@@ -32,6 +29,10 @@ Add Course
             <div class="mb-3">
                 <label class="form-label">Cost</label>
                 <input type="number" required class="form-control" id="cost" name="cost">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Add doctor Id</label>
+                <input type="number" class="form-control" id="doctor_id" name="doctor_id">
             </div>
             <button type="submit" class="btn btn-primary m-4" name="btn">Create</button>
         </form>

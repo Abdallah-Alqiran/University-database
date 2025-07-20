@@ -19,4 +19,8 @@ class Doctor extends Model
         'gender',
         'salary',
     ];
+
+    public function course() {
+        return $this->hasMany(Course::class);
+    }
 }

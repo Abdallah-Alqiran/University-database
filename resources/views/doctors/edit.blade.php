@@ -1,5 +1,3 @@
-@extends('layouts.head')
-@extends('layouts.body')
 @extends('layouts.template')
 
 
@@ -16,7 +14,7 @@ Add Course
 @section('content')
 
 <div class="container d-flex justify-content-center align-items-start min-vh-100 pt-5">
-    <div class="col-8">
+    <div class="w-100">
         <h1 class="text-info text-center">Edit Doctor</h1>
 
         <form method="POST" action="{{ route('doctors.update', $doctor->id) }}">

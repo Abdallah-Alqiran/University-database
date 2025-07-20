@@ -12,7 +12,7 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        $doctors = Doctor::all();
+        $doctors = Doctor::with('course')->get();
         return view(view: 'doctors.list')->with('doctors', $doctors);
     }
 
