@@ -18,7 +18,13 @@ class Course extends Model
         'doctor_id'
     ];
 
-    public function doctor() {
+    public function doctor()
+    {
         return $this->belongsTo(Doctor::class);
+    }
+
+    public function students()
+    {
+        return $this->belongsToMany(Student::class);
     }
 }

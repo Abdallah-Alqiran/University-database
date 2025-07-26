@@ -2,7 +2,7 @@
 
 
 @section('title')
-    Home
+Home
 @endsection
 
 @section('content')
@@ -24,6 +24,7 @@ Students Data
                 <td>Phone</td>
                 <td>Age</td>
                 <td>Gender</td>
+                <td>Courses: 🗝️</td>
                 <td>Action</td>
             </tr>
             @foreach ($students as $student)
@@ -34,7 +35,14 @@ Students Data
                 <td>{{$student->phone}}</td>
                 <td>{{ $student->age }}</td>
                 <td>{{ $student->gender }}</td>
-                <td> 
+                <td>
+                    @if($student->courses)
+                    @foreach ($student->courses as $course)
+                    {{ $course->name }},
+                    @endforeach
+                    @else <span class="text-danger fw-bold">No Courses</span> @endif
+                </td>
+                <td>
                     <a href="{{ route('students.delete', $student->id) }}" class="btn btn-danger">Delete</a>
                     <a href="{{ route('students.edit', $student->id) }}" class="btn btn-primary">Edit</a>
                 </td>

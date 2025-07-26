@@ -18,4 +18,9 @@ class Student extends Model
         'age',
         'gender'
     ];
+
+    public function courses()
+    {
+        return $this->belongsToMany(Course::class);
+    }
 }

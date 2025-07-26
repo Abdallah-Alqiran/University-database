@@ -29,10 +29,16 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        Course::create($request->all());
-        $courses = Course::all();
+        $course = Course::create([
+            'name' => $request->name,
+            'hours' => $request->hours,
+            'cost' => $request->cost,
+            'doctor_id' => $request->doctor_id,
+        ]);
 
-        return redirect()->route('courses.index')->with('courses', $courses);
+        $course->students()->attach($request->student_id); // this works with array
+
+        return redirect()->route('courses.index')->with('courses', $course);
     }
 
     /**
@@ -67,7 +73,7 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        Course::findOrFail($id)->delete();    
+        Course::findOrFail($id)->delete();
 
         return redirect()->route('courses.index');
     }

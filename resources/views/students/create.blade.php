@@ -2,7 +2,7 @@
 
 
 @section('title')
-    Home
+Home
 @endsection
 
 @section('content')
@@ -43,6 +43,17 @@ Add Course
                     <option value="female">Female</option>
                 </select>
             </div>
+            <div id="course-id">
+                <div class="mb-3">
+                    <label class="form-label">Course ID</label>
+                    <input type="number" name="course_id[]" class="form-control">
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-success mb-3" onclick="addCourseId()">
+                +
+            </button>
+
             <button type="submit" class="btn btn-primary m-4" name="btn">Create</button>
         </form>
     </div>
@@ -51,3 +62,19 @@ Add Course
 
 @endsection
 @endsection
+
+
+<script>
+    function addCourseId() {
+        const container = document.getElementById('course-id');
+        const newInput = document.createElement('div');
+        newInput.classList.add('mb-3');
+
+        newInput.innerHTML = `
+            <label class="form-label">Student ID</label>
+            <input type="number" name="course_id[]" class="form-control" required>
+        `;
+
+        container.appendChild(newInput);
+    }
+</script>

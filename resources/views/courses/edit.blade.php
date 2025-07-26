@@ -34,6 +34,10 @@ Add Course
                 <label class="form-label">doctor Id</label>
                 <input type="number" class="form-control" id="doctor_id" name="doctor_id" value='{{ $course->doctor->id ?? '' }}'>
             </div>
+            <div class="mb-3">
+                <label class="form-label">Student Id</label>
+                <input type="number" class="form-control" id="student_id" name="student_id" value='{{ $course->student->id ?? '' }}'>
+            </div>
             <button type="submit" class="btn btn-primary m-4" name="btn">Edit</button>
         </form>
     </div>

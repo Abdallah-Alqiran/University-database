@@ -34,6 +34,17 @@ Add Course
                 <label class="form-label">Add doctor Id</label>
                 <input type="number" class="form-control" id="doctor_id" name="doctor_id">
             </div>
+            <div id="student-id">
+                <div class="mb-3">
+                    <label class="form-label">Student ID</label>
+                    <input type="number" name="student_id[]" class="form-control">
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-success mb-3" onclick="addStudentId()">
+                +
+            </button>
+
             <button type="submit" class="btn btn-primary m-4" name="btn">Create</button>
         </form>
     </div>
@@ -42,3 +53,18 @@ Add Course
 
 @endsection
 @endsection
+
+<script>
+    function addStudentId() {
+        const container = document.getElementById('student-id');
+        const newInput = document.createElement('div');
+        newInput.classList.add('mb-3');
+
+        newInput.innerHTML = `
+            <label class="form-label">Student ID</label>
+            <input type="number" name="student_id[]" class="form-control" required>
+        `;
+
+        container.appendChild(newInput);
+    }
+</script>

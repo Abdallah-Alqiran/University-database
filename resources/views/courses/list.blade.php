@@ -22,6 +22,7 @@ Courses Data
                 <td>hours</td>
                 <td>cost</td>
                 <td>Explain By: 🗝️</td>
+                <td>Students: 🗝️</td>
                 <td>Action</td>
             </tr>
             @foreach ($courses as $course)
@@ -31,6 +32,13 @@ Courses Data
                 <td>{{ $course->hours }}</td>
                 <td>{{$course->cost}}</td>
                 <td> @if($course->doctor) {{$course->doctor->name}} @else <span class="text-danger fw-bold">No Doctor</span> @endif</td>
+                <td> 
+                    @if($course->students) 
+                        @foreach  ($course->students as $student)
+                            {{ $student->name }},
+                        @endforeach
+                    @else <span class="text-danger fw-bold">No students</span> @endif
+                </td>
                 <td>
                     <a href="{{ route('courses.delete', $course->id) }}" class="btn btn-danger">Delete</a>
                     <a href="{{ route('courses.edit', $course->id) }}" class="btn btn-primary">Edit</a>

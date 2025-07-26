@@ -2,7 +2,7 @@
 
 
 @section('title')
-    Home
+Home
 @endsection
 
 @section('content')
@@ -39,10 +39,32 @@ Add Course
                 <label class="form-label">Select Gender</label>
                 <select class="form-select" name="getnder">
                     <option selected>Choose Gender</option>
-                    <option value="male" {{ $student->gender == "male"? 'selected': '' }} >Male</option>
-                    <option value="female" {{ $student->gender == "female"? 'selected': '' }} >Female</option>
+                    <option value="male" {{ $student->gender == "male"? 'selected': '' }}>Male</option>
+                    <option value="female" {{ $student->gender == "female"? 'selected': '' }}>Female</option>
                 </select>
             </div>
+
+            <div id="course-id">
+                @if($student->courses->count())
+                @foreach($student->courses as $course)
+                <div class="mb-3">
+                    <label class="form-label">Course ID</label>
+                    <input type="number" name="course_id[]" class="form-control" value="{{ $course->id }}">
+                </div>
+                @endforeach
+                @else
+                <div class="mb-3">
+                    <label class="form-label">Course ID</label>
+                    <input type="number" name="course_id[]" class="form-control">
+                </div>
+                @endif
+            </div>
+
+            <button type="button" class="btn btn-success mb-3" onclick="addCourseId()">
+                +
+            </button>
+
+
             <button type="submit" class="btn btn-primary m-4" name="btn">Edit</button>
         </form>
     </div>
@@ -51,3 +73,19 @@ Add Course
 
 @endsection
 @endsection
+
+
+<script>
+    function addCourseId() {
+        const container = document.getElementById('course-id');
+        const newInput = document.createElement('div');
+        newInput.classList.add('mb-3');
+
+        newInput.innerHTML = `
+            <label class="form-label">Student ID</label>
+            <input type="number" name="course_id[]" class="form-control" required>
+        `;
+
+        container.appendChild(newInput);
+    }
+</script>
